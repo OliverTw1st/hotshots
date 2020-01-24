@@ -1,0 +1,122 @@
+2020-01-23 05:57:36,106 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 06:02:51,081 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 20:11:10,246 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 21:06:28,132 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 21:07:11,732 ERROR: Exception on /createtelescope [GET] [in /usr/local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "./app/main/routes.py", line 122, in createTelescope
+    return render_template('main/createtelescope.html', title='Create Telescope', form=form)
+  File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python3.7/site-packages/flask/templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: main/createtelescope.html
+2020-01-23 21:08:35,037 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 21:09:50,229 ERROR: Exception on /createtelescope [POST] [in /usr/local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "./app/main/routes.py", line 116, in createTelescope
+    if form.validate_on_submit():
+  File "/usr/local/lib/python3.7/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "/usr/local/lib/python3.7/site-packages/wtforms/form.py", line 310, in validate
+    return super(Form, self).validate(extra)
+  File "/usr/local/lib/python3.7/site-packages/wtforms/form.py", line 152, in validate
+    if not field.validate(self, extra):
+  File "/usr/local/lib/python3.7/site-packages/wtforms/fields/core.py", line 206, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+  File "/usr/local/lib/python3.7/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
+    validator(form, self)
+  File "/usr/local/lib/python3.7/site-packages/wtforms/validators.py", line 134, in __call__
+    if data is None or (self.min is not None and data < self.min) or \
+TypeError: '<' not supported between instances of 'str' and 'int'
+2020-01-23 21:10:04,108 ERROR: Exception on /createtelescope [POST] [in /usr/local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "./app/main/routes.py", line 116, in createTelescope
+    if form.validate_on_submit():
+  File "/usr/local/lib/python3.7/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "/usr/local/lib/python3.7/site-packages/wtforms/form.py", line 310, in validate
+    return super(Form, self).validate(extra)
+  File "/usr/local/lib/python3.7/site-packages/wtforms/form.py", line 152, in validate
+    if not field.validate(self, extra):
+  File "/usr/local/lib/python3.7/site-packages/wtforms/fields/core.py", line 206, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+  File "/usr/local/lib/python3.7/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
+    validator(form, self)
+  File "/usr/local/lib/python3.7/site-packages/wtforms/validators.py", line 134, in __call__
+    if data is None or (self.min is not None and data < self.min) or \
+TypeError: '<' not supported between instances of 'str' and 'int'
+2020-01-23 21:10:59,370 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 21:12:16,357 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 21:12:32,537 ERROR: Exception on /createtelescope [POST] [in /usr/local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "./app/main/routes.py", line 117, in createTelescope
+    telescope = Telescope(user_id=current_user.id, lat=form.lat.data, lon=form.lon.data, location_alias=form.telescope_name.data, camera_model=form.camera_model.data, api_token=uuid.uuid4().hex)
+NameError: name 'Telescope' is not defined
+2020-01-23 21:13:28,588 INFO: hotshots.space startup [in ./app/__init__.py:85]

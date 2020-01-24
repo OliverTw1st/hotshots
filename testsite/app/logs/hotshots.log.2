@@ -1,0 +1,146 @@
+2020-01-23 01:00:56,399 ERROR: Exception on /auth/register [POST] [in /usr/local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.IntegrityError: (1062, "Duplicate entry '3dfa6939c01940b386b7fa9122001e1d' for key 'ix_user_api_token'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/auth/routes.py", line 42, in register
+    db.session.commit()
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1036, in commit
+    self.transaction.commit()
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 503, in commit
+    self._prepare_impl()
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 482, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2479, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2617, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2577, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1137, in _emit_insert_statements
+    statement, params
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1101, in _execute_clauseelement
+    distilled_params,
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1250, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1476, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "/usr/local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 209, in execute
+    res = self._query(query)
+  File "/usr/local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 315, in _query
+    db.query(q)
+  File "/usr/local/lib/python3.7/site-packages/MySQLdb/connections.py", line 239, in query
+    _mysql.connection.query(self, query)
+sqlalchemy.exc.IntegrityError: (MySQLdb._exceptions.IntegrityError) (1062, "Duplicate entry '3dfa6939c01940b386b7fa9122001e1d' for key 'ix_user_api_token'")
+[SQL: INSERT INTO user (username, email, password_hash, first_name, last_name, api_token, date_created, last_login, about_me, active) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)]
+[parameters: ('test4', 'test4@test.com', 'pbkdf2:sha256:150000$iJdKJagD$8a407cdd8c271a2618e4e15fd780b03beb445fd508965a6d70c6c0f73cd938fe', None, None, '3dfa6939c01940b386b7fa9122001e1d', datetime.datetime(2020, 1, 23, 0, 59, 16, 142743), datetime.datetime(2020, 1, 23, 1, 0, 56, 382342), None, 1)]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-01-23 01:05:33,573 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 01:05:44,524 INFO: hotshots.space startup [in /app/app/__init__.py:85]
+2020-01-23 01:05:57,813 INFO: hotshots.space startup [in /app/app/__init__.py:85]
+2020-01-23 01:06:08,193 ERROR: Exception on /auth/register [POST] [in /usr/local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/auth/routes.py", line 44, in register
+    return redirect(url_for('auth/login'))
+  File "/usr/local/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "/usr/local/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'auth/login'. Did you mean 'auth.login' instead?
+2020-01-23 01:06:49,028 ERROR: Exception on /auth/register [POST] [in /usr/local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/auth/routes.py", line 44, in register
+    return redirect(url_for('auth/login'))
+  File "/usr/local/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "/usr/local/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'auth/login'. Did you mean 'auth.login' instead?
+2020-01-23 01:07:59,507 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 01:15:03,164 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 05:28:38,962 INFO: hotshots.space startup [in ./app/__init__.py:85]
+2020-01-23 05:56:35,060 INFO: hotshots.space startup [in ./app/__init__.py:85]
